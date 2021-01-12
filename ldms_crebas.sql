@@ -40,10 +40,3 @@ INSERT INTO employees (emp_id, emp_name, job_title, manager_id, date_hired, sala
 INSERT INTO employees (emp_id, emp_name, job_title, manager_id, date_hired, salary, dept_id) SELECT 90010, 'Mildred Hall', 'Secretary', 90001, TO_DATE('12-OCT-1996', 'DD-MON-RRRR'), 35000, 1 FROM DUAL;
 
 CREATE SEQUENCE seq_employee START WITH 90011 INCREMENT BY 1 NOMAXVALUE;
-
-select dept_name department, e.emp_name employee, e.job_title "job title", e.salary salary, e2.emp_name manager
-from departments d, employees e, employees e2
-where d.dept_id = e.dept_id
-and e.manager_id = e2.emp_id(+)
-and d.dept_name = '&dept_name'
-order by d.dept_id, e.salary desc;
